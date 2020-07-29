@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"path"
 	"summerbox/resps"
@@ -24,9 +25,13 @@ func Uploadfile(c *gin.Context)  {
 }
 
 func Downloadfile(c *gin.Context)  {
-	//下载的话  拿到路径就可以了
+
+	filename:=c.PostForm("filename")
 	paths:=c.PostForm("path")
-	c.File(paths)
+	c.Writer.Header().Add("Content-Disposition", fmt.Sprintf("attachment; filename=%s", filename))
+	c.Writer.Header().Add("Content-Type", "application/octet-stream")
+	c.File(paths)//文件当前所在目录
+
 	msg:="Download seccess!"
 	resps.Ok(c,msg)
 }
