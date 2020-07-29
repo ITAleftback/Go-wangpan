@@ -123,9 +123,10 @@ jwt的代码太长了我就不上代码了。
 
 ```
 func ShareQRcode(c *gin.Context)  {
-   //这个是拿到想要分享的链接的路径
-   path:=c.PostForm("path")
-   _ = qrcode.WriteFile(path, qrcode.Medium, 256, "qr.png")
+  //这个是拿到想要分享的链接的路径
+	path:=c.PostForm("path")
+	_ = qrcode.WriteFile(path, qrcode.Medium, 256, "qr.png")
+	c.File("qr.png")
 }
 ```
 
