@@ -166,6 +166,16 @@ func Sharesecret(c *gin.Context){
 
 
 
+
+
+# docker
+
+已经安装好了dockers，也成功编译了但是遇到个难题，不知道如何根据Go项目写Dockerfile。CSDN上的教程都是简单的一个项目，如果是这样复杂的项目又是怎么写的呢？
+
+![image-20200730033327494](C:\Users\Mechrevo\AppData\Roaming\Typora\typora-user-images\image-20200730033327494.png)
+
+我的Dockerfile又该如何改呢？
+
 # 最后想说的
 
-这次实现的代码，自我最满意的是设计的分布式设计。修改代码的时候也确实非常方便修改，
+这次实现的代码，自我最满意的是设计的分布式设计。修改代码的时候也确实非常方便修改，还要多些学长的代码示范以及分布式的设计，不然我的代码肯定看起来杂七杂八的。
