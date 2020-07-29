@@ -10,6 +10,7 @@ func ShareQRcode(c *gin.Context)  {
 	//这个是拿到想要分享的链接的路径
 	path:=c.PostForm("path")
 	_ = qrcode.WriteFile(path, qrcode.Medium, 256, "qr.png")
+	c.File("qr.png")
 }
 //MD5加密
 func Sharesecret(c *gin.Context){
