@@ -62,7 +62,46 @@ func Downloadfile(c *gin.Context)  {
 
 ## 登陆注册
 
-老朋友了，这里我就不上代码了。
+老朋友了，这里我就不上完整代码了。
+
+当相比以往，我加入了检验密码强度的东西
+
+
+
+```
+if username==""||password=="" {
+   msg:="您输入的用户名或密码为空"
+   resps.Error(c,msg)
+   return
+}
+
+if len(password)<5 {
+   msg:="密码必须大于5位"
+   resps.Error(c,msg)
+   return
+}
+//密码强度必须为字⺟⼤⼩写+数字
+num := `[0-9]{1}`
+a_z := `[a-z]{1}`
+A_Z := `[A-Z]{1}`
+if b, err := regexp.MatchString(num, password); !b || err != nil {
+   msg:="密码必须包含字母大小写和数字！"
+   resps.Error(c,msg)
+   return
+}
+if b, err := regexp.MatchString(a_z, password); !b || err != nil {
+   msg:="密码必须包含字母大小写和数字！"
+   resps.Error(c,msg)
+   return
+}
+if b, err := regexp.MatchString(A_Z, password); !b || err != nil {
+   msg:="密码必须包含字母大小写和数字！"
+   resps.Error(c,msg)
+   return
+}
+```
+
+
 
 ## 权限管理
 
